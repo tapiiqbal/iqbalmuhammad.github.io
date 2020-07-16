@@ -9,23 +9,17 @@ class FooterBar extends HTMLElement {
     render() {
         this.innerHTML = `
         <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-
-        main {
-            flex: 1 0 auto;
+        footer.page-footer{
+            background-color: #131313;
         }
         </style>
-            <footer class="page-footer blue">
-            <div class="footer-copyright">
-                <div class="container">
-                © 2020 IM Industri
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <footer class="page-footer">
+                <div class="footer-copyright">
+                    <div class="container">
+                    © 2020 IM Industri
+                    <a class="grey-text text-lighten-4 right">More Links</a>
+                    </div>
                 </div>
-            </div>
             </footer>`;
     }
 }

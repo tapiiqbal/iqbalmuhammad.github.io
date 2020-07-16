@@ -1,3 +1,4 @@
+import { navbar } from '../js/initialization.js'
 class NavBar extends HTMLElement {
     constructor() {
         super();
@@ -9,16 +10,16 @@ class NavBar extends HTMLElement {
     render() {
         this.innerHTML = `
         <style>
-        nav a:hover{
-            background-color: #29B6F6 !important;
+        a.home,a.save{
+            background-color: #131313 !important;
         }
         </style>
             <div class="navbar-fixed" id="nav-bar">
-            <nav class="white" role="navigation">
+            <nav class="transparent" role="navigation">
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a href="#home" class="brand-logo" id="logo-container"><img src="assets/images/logo-ball-64.svg"></a>
-                       <a href="#" data-target="mobile-nav" class="sidenav-trigger" style="color:black;"><i class="material-icons">menu</i></a>
+                        <a href="index.html" class="brand-logo" id="logo-container"><img src="./assets/images/triumph-soccer-ball-symbol.png"></a>
+                       <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i style="color: #131313;"class="material-icons">menu</i></a>
                         <ul class="topnav right hide-on-med-and-down">
                         </ul>
                     </div>
@@ -27,6 +28,7 @@ class NavBar extends HTMLElement {
         </div>
         <ul class="sidenav" id="mobile-nav">
         </ul>`;
+        navbar();
     }
 }
 customElements.define("nav-bar", NavBar);

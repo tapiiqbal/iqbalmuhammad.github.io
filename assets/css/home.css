@@ -1,0 +1,52 @@
+body {
+    /* background-color: #76CF17; */
+}
+
+.card {
+    height: 270px !important;
+    border-bottom: 1px solid blue;
+}
+
+.card-image img {
+    height: 150.51px !important;
+}
+
+.card-content {}
+
+.card-content p.name {
+    font-weight: bold;
+    color: blue;
+    border-bottom: 1px solid black;
+    font-family: Montserrat, sans-serif;
+}
+
+.card-content p.area-name {
+    color: blue;
+}
+
+.parallax-container {
+    height: 250px !important;
+}
+
+.parallax img {
+    width: auto !important;
+    height: 450px;
+}
+
+ul#mobile-nav li a {
+    color: white;
+}
+
+ul#mobile-nav {
+    background-color: #131313;
+    width: 220px;
+}
+
+.tabs .indicator {
+    background-color: #131313;
+}
+
+.btn-floating.btn-small.halfway-fab {
+    bottom: 235.8px;
+    right: 0px;
+}

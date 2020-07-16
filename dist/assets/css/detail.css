@@ -1,0 +1,92 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: [footer-height];
+    /* background-color: #76CF17; */
+}
+
+.row .col.s12 {
+    padding: 20px;
+}
+
+.collection .collection-item.avatar {
+    background-color: #1574EA;
+}
+
+.collection a.collection-item {
+    background-color: #1574EA;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+table {
+    width: 100%;
+    background-color: #f1f1c1;
+}
+
+p.competition-name {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.img-modal {
+    border-style: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+.team-detail {
+    border: 1px solid black;
+}
+
+.team-detail p {
+    font-size: 10px;
+    font-family: sans-serif;
+    margin-left: 10px;
+}
+
+table.team-detail {
+    margin: 10px;
+}
+
+hr {
+    width: 90px;
+    border-top: 2px solid #999;
+}
+
+h4 {
+    font-size: bold;
+    font-family: sans-serif;
+}
+
+.modal {
+    border-radius: 10px;
+}
+
+span.status {
+    font-size: 12px;
+}
+
+a.status {
+    font-size: 12px;
+}
+
+.collection .collection-item {
+    padding: 7px;
+}
+
+.tabs .indicator {
+    background-color: black;
+}

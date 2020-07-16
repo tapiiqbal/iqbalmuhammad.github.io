@@ -1,0 +1,11 @@
+.dark-background {
+    background-color: #131313 !important;
+}
+
+.dark-color {
+    color: white !important;
+}
+
+.dark-border {
+    border: 1px solid #131313;
+}

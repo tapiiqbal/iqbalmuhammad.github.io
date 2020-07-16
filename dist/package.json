@@ -4,11 +4,15 @@
     "description": "football-competitions",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server"
     },
     "author": "iqbal muhammad",
     "license": "ISC",
     "devDependencies": {
         "web-push": "^3.4.4"
+    },
+    "dependencies": {
+        "material-design-icons": "^3.0.1"
     }
 }

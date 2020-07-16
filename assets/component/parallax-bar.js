@@ -1,3 +1,4 @@
+import { parallax } from '../js/initialization.js'
 class ParallaxBar extends HTMLElement {
     constructor() {
         super();
@@ -10,23 +11,11 @@ class ParallaxBar extends HTMLElement {
     render() {
         this.innerHTML = `
         <style>
-        .parallax-container {
-            height: 350px !important;
-        }
-        .parallax img {
-            width:auto !important;
-            height:450px;
-        }
         </style>
             <div class="parallax-container">
-                <div class="parallax"><img src="./assets/images/mario-klassen-70YxSTWa2Zw-unsplash.jpg"></div>
+                <div class="parallax"><img src="./assets/images/stadium-2.jpg" alt="stadium-ball"></div>
             </div>`;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const elems = document.querySelectorAll('.parallax');
-            // let instances = M.Parallax.init(elems, options);
-            let instances = M.Parallax.init(elems);
-        });
+        parallax();
     }
 }
 customElements.define("parallax-bar", ParallaxBar);

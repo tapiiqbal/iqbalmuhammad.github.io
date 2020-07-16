@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadNavHome();
     let page = window.location.hash.substr(1);
-    if (page === "") loadPage("home");
 
+    if (page === "") loadPage("home");
+    else loadPage(page)
 });
