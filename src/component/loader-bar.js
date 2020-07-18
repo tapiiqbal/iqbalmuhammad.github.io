@@ -11,7 +11,6 @@ class LoaderBar extends HTMLElement {
     render() {
         this.shadowDOM.innerHTML = `
             <style>
-            /*Loader*/
             #loader-wrapper {
                 position: fixed;
                 top: 0;
@@ -20,34 +19,53 @@ class LoaderBar extends HTMLElement {
                 height: 100%;
                 z-index: 1000;
             }
-
-            /*Text Loading */
-            h2{
-                display: block;
-                position: relative;
-                top: 13%;
-                font-size: 50px;
-                font-family: Brush Script Std;
-                text-align: center;
-                color: white;
-                z-index: 1001;
-                animation: mymove 1.5s infinite alternate;
+            #loader {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 1;
+                width: 150px;
+                height: 150px;
+                margin: -75px 0 0 -75px;
+                border: 16px solid #131313;
+                border-radius: 50%;
+                border-top: 16px solid white;
+                width: 120px;
+                height: 120px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
             }
-            @keyframes mymove{
-                0%{
-                    opacity: 100; 
-                }
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
 
-                100%{
-                    opacity: 0;
-                }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            /* Add animation to "page content" */
+            .animate-bottom {
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1s;
+                animation-name: animatebottom;
+                animation-duration: 1s
+            }
+
+            @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 } 
+            to { bottom:0px; opacity:1 }
+            }
+
+            @keyframes animatebottom { 
+            from{ bottom:-100px; opacity:0 } 
+            to{ bottom:0; opacity:1 }
             }
             </style>
             <div id="loader-wrapper">
-            <h2><img src="./assets/images/loader/Interwind-1.1s-227px.gif"></h2>
-            <div id="loader"></div>
-            <div class="loader-section section-left"></div>
-            <div class="loader-section section-right"></div>
+                <div id="loader"></div>
             </div>`;
     }
 }

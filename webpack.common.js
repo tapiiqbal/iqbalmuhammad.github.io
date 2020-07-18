@@ -77,7 +77,7 @@ module.exports = {
             }
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.[chunkhash].css'
+            filename: 'style.css'
         }),
         new CopyWebpackPlugin({
             patterns: [

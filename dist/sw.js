@@ -1,10 +1,17 @@
-let CACHE_NAME = 'soccermatch-v5';
+let CACHE_NAME = 'soccermatch-v4';
 let urlsToCache = [
     '/',
     '/index.html',
+    '/detail.html',
     '/manifest.json',
     '/offline.html',
-    'app.js',
+    '/app.js',
+    '/style.css',
+    './pages/detail.html',
+    './pages/home.html',
+    './pages/save.html',
+    './assets/images/triumph-soccer-ball-symbol.png',
+    './assets/images/stadium-2.jpg'
 ];
 
 self.addEventListener('install', function(event) {
@@ -12,7 +19,7 @@ self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
         .then(function(cache) {
-            console.log('Opened cache');
+            // console.log('Opened cache');
             return cache.addAll(urlsToCache);
         })
     );
@@ -25,7 +32,7 @@ self.addEventListener('activate', function(event) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
                     if (cacheName != CACHE_NAME) {
-                        console.log("ServiceWorker: cache " + cacheName + " dihapus");
+                        // console.log("ServiceWorker: cache " + cacheName + " dihapus");
                         return caches.delete(cacheName);
                     }
                 })
@@ -35,9 +42,9 @@ self.addEventListener('activate', function(event) {
 })
 
 self.addEventListener("fetch", function(event) {
-    var base_url = `https://api.football-data.org/v2/`;
-    console.log("event.request.url.indexOf(base_url) ", event.request.url.indexOf(base_url));
-    console.log("url ", event.request.url);
+    let base_url = `https://api.football-data.org/v2/`;
+    // console.log("event.request.url.indexOf(base_url) ", event.request.url.indexOf(base_url));
+    // console.log("url ", event.request.url);
 
     // Method indexOf akan mengembalikan nilai -1 jika base_url tidak ada di request saat ini dan akan bernilai lebih dari -1 jika url yang diminta mengandung isi base_url.
 
@@ -63,13 +70,13 @@ self.addEventListener("fetch", function(event) {
 
 // push notif payload firebase
 self.addEventListener('push', function(event) {
-    var body;
+    let body;
     if (event.data) {
         body = event.data.text();
     } else {
         body = 'Push message no payload';
     }
-    var options = {
+    let options = {
         body: body,
         icon: '/assets/images/ball-180.png',
         vibrate: [100, 50, 100],

@@ -10,8 +10,6 @@ class CompetitionsBar extends HTMLElement {
     }
     async render() {
         const response = await api.getAllCompetitions();
-        console.log(response);
-
         const { competitions } = response;
         let dataCompetitions = [];
         competitions.map((dt, index, arr) => {
@@ -24,6 +22,10 @@ class CompetitionsBar extends HTMLElement {
             return dt;
         });
         const competitionsHTML = dataCompetitions.map(dt => {
+            let urlImg = dt.emblemUrl;
+            if (urlImg !== null) {
+                urlImg = urlImg.replace(/^http:\/\//i, 'https://')
+            };
             let dtHTML = "";
             dtHTML += `
                 <div class="col s6 m2">

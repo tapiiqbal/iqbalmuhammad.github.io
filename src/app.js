@@ -1,8 +1,8 @@
 import "regenerator-runtime";
-import 'jquery/dist/jquery.min.js';
+import "jquery/dist/jquery.min.js";
 //css
 import 'materialize-css/dist/css/materialize.min.css';
-import 'material-design-icons/iconfont/material-icons.css'
+import 'material-design-icons/iconfont/material-icons.css';
 import './assets/css/darkmode.css';
 import './assets/css/home.css';
 import './assets/css/detail.css';

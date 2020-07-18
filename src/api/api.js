@@ -1,8 +1,21 @@
 import dataApi from './data-api.js'
 import { tabs, openModal, toast } from '../assets/js/initialization.js';
-import { removeLoader } from '../assets/js/helper.js';
+import { removeLoader, setTimeLoader } from '../assets/js/helper.js';
 class Api {
-
+    static status(response) {
+        if (response.status !== 200) {
+            console.log("Error : " + response.status);
+            return Promise.reject(new Error(response.statusText));
+        } else {
+            return Promise.resolve(response);
+        }
+    }
+    static json(response) {
+        return response.json();
+    }
+    static error(error) {
+        console.log("Error : " + error);
+    }
     static async getAllCompetitions() {
         try {
             if ('caches' in window) {
@@ -15,8 +28,8 @@ class Api {
             if (error instanceof TypeError) {
                 const response = await fetch(`${dataApi.url}competitions`, dataApi.options);
                 const responseJson = await response.json();
-                if (!responseJson) return showModal();
                 if (responseJson) removeLoader();
+                if (!responseJson) openModal();
                 return responseJson;
             }
         }
@@ -35,8 +48,8 @@ class Api {
 
                 const response = await fetch(`${dataApi.url}competitions/${id}`, dataApi.options);
                 const responseJson = await response.json();
-                if (!responseJson) return showModal();
                 if (responseJson) removeLoader();
+                if (!responseJson) openModal();
                 return responseJson;
             }
         }
@@ -65,8 +78,8 @@ class Api {
                     standingType: "HOME"
                 }), dataApi.options);
                 const responseJson = await response.json();
-                if (!responseJson) return showModal();
                 if (responseJson) removeLoader();
+                if (!responseJson) openModal();
                 return responseJson;
             }
         }
@@ -84,8 +97,8 @@ class Api {
             if (error instanceof TypeError) {
                 const response = await fetch(`${dataApi.url}teams/${id}`, dataApi.options);
                 const responseJson = await response.json();
-                if (!responseJson) return showModal();
                 if (responseJson) removeLoader();
+                if (!responseJson) openModal();
                 return responseJson;
             }
         }
@@ -110,8 +123,8 @@ class Api {
                     status: "SCHEDULED"
                 }), dataApi.options);
                 const responseJson = await response.json();
-                if (!responseJson) return showModal();
                 if (responseJson) removeLoader();
+                if (!responseJson) openModal();
                 return responseJson;
             }
         }
@@ -123,6 +136,10 @@ class Api {
         const resultMatch = await this.getByIdTeamMatch(dataTeam.team.id);
         const { matches } = resultMatch;
         // row
+        let urlImg = dataTeam.team.crestUrl;
+        if (urlImg !== null) {
+            urlImg = urlImg.replace(/^http:\/\//i, 'https://')
+        };
         let teamContentInnerHTML = `
             <div class="row">
                 <div class="col s12 hide-on-large-only hide-on-med-only">
