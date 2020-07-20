@@ -21,5 +21,5 @@ module.exports = merge(common, {
             new UglifyJsPlugin(),
             new OptimizeCSSAssetsPlugin()
         ]
-    }
+    },
 });

@@ -1,30 +1,40 @@
 const openModal = () => {
     const elemsModal = document.querySelector(".modal");
-    M.Modal.init(elemsModal, {
-        startingTop: "10%",
-        endingTop: "20%",
-    });
-    M.Modal.init(elemsModal);
-    let instance = M.Modal.getInstance(elemsModal);
-    instance.open()
+    if (elemsModal) {
+        M.Modal.init(elemsModal, {
+            startingTop: "10%",
+            endingTop: "20%",
+        });
+        M.Modal.init(elemsModal);
+        let instance = M.Modal.getInstance(elemsModal);
+        instance.open();
+    }
 }
 const closeModal = () => {
     const elemsModal = document.querySelector(".modal");
-    let instance = M.Modal.getInstance(elemsModal);
-    instance.close();
+    if (elemsModal) {
+        let instance = M.Modal.getInstance(elemsModal);
+        instance.close();
+    }
 }
 
 const tabs = () => {
     let elemsTabs = document.querySelector('.tabs');
-    M.Tabs.init(elemsTabs);
+    if (elemsTabs) {
+        M.Tabs.init(elemsTabs);
+    }
 }
 const navbar = () => {
     let elemsSideNav = document.querySelector(".sidenav");
-    M.Sidenav.init(elemsSideNav);
+    if (elemsSideNav) {
+        M.Sidenav.init(elemsSideNav);
+    }
 }
 const parallax = () => {
-    const elemsparallax = document.querySelector('.parallax');
-    M.Parallax.init(elemsparallax);
+    const elemsParallax = document.querySelector('.parallax');
+    if (elemsParallax) {
+        M.Parallax.init(elemsParallax);
+    }
 }
 
 const toast = (param) => {
@@ -32,14 +42,18 @@ const toast = (param) => {
 }
 const floatingActionButton = () => {
     const elemsBtn = document.querySelector('.fixed-action-btn');
-    M.FloatingActionButton.init(elemsBtn, {
-        direction: 'top',
-        hoverEnabled: false,
-    });
+    if (elemsBtn) {
+        M.FloatingActionButton.init(elemsBtn, {
+            direction: 'top',
+            hoverEnabled: false,
+        });
+    }
 }
 
 const collapsible = () => {
     const elemsCollaps = document.querySelectorAll(".collapsible");
-    M.Collapsible.init(elemsCollaps);
+    if (elemsCollaps) {
+        M.Collapsible.init(elemsCollaps);
+    }
 }
 export { openModal, closeModal, tabs, navbar, parallax, toast, floatingActionButton, collapsible };

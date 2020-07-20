@@ -1,3 +1,4 @@
+import { setTimeLoader } from '../js/helper.js';
 document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector('#body-content')) {
         const loadNavDetail = async() => {
@@ -29,12 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const content = document.querySelector("#body-content");
 
             if (response.status == 200) content.innerHTML = responseHtml;
-            else if (response.status == 404) content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
-            else content.innerHTML = "<p>Ups.. halaman tidak dapat diakses.</p>";
+            else if (response.status == 404) {
+                setTimeLoader();
+                loadPage("404");
+            } else {
+                setTimeLoader();
+                content.innerHTML = "<p>Ups.. halaman tidak dapat diakses.</p>";
+            }
         }
 
         let page = window.location.hash.substr(1);
-        if (page === "") loadPage("detail");
+        if (page === "") loadPage("pagedetail");
         loadNavDetail();
     }
 })

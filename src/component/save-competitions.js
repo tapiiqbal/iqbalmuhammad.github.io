@@ -1,5 +1,6 @@
 import { getAllCompetitions, getAllTeams, deleteByIdTeam, deleteByIdCompetition } from '../api/db.js'
 import { collapsible, tabs } from '../assets/js/initialization.js';
+import { visibleLoader } from '../assets/js/helper.js'
 class SaveCompetitions extends HTMLElement {
     constructor() {
         super();
@@ -10,6 +11,7 @@ class SaveCompetitions extends HTMLElement {
     }
 
     async render() {
+        visibleLoader();
         const resultCompetitions = await getAllCompetitions();
         const resultCompetition = resultCompetitions.map(dt => {
             let dtHTML = "";

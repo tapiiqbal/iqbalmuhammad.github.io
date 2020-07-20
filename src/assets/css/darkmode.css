@@ -9,3 +9,11 @@
 .dark-border {
     border: 1px solid #131313;
 }
+
+.dark-color-default {
+    color: #131313 !important;
+}
+
+.dark-background-default {
+    background-color: white !important;
+}

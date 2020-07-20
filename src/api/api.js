@@ -1,6 +1,6 @@
 import dataApi from './data-api.js'
-import { tabs, openModal, toast } from '../assets/js/initialization.js';
-import { removeLoader, setTimeLoader } from '../assets/js/helper.js';
+import { tabs, openModal } from '../assets/js/initialization.js';
+import { setTimeLoader } from '../assets/js/helper.js';
 class Api {
     static status(response) {
         if (response.status !== 200) {
@@ -21,14 +21,14 @@ class Api {
             if ('caches' in window) {
                 const response = await caches.match(`${dataApi.url}competitions`);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 return responseJson;
             }
         } catch (error) {
             if (error instanceof TypeError) {
                 const response = await fetch(`${dataApi.url}competitions`, dataApi.options);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 if (!responseJson) openModal();
                 return responseJson;
             }
@@ -40,7 +40,7 @@ class Api {
             if ('caches' in window) {
                 const response = await caches.match(`${dataApi.url}competitions/${id}`);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 return responseJson;
             }
         } catch (error) {
@@ -48,7 +48,7 @@ class Api {
 
                 const response = await fetch(`${dataApi.url}competitions/${id}`, dataApi.options);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 if (!responseJson) openModal();
                 return responseJson;
             }
@@ -62,7 +62,7 @@ class Api {
             if ('caches' in window) {
                 const response = await caches.match(`${dataApi.url}competitions/${idParam}/standings?standingType=HOME`);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 return responseJson;
             }
         } catch (error) {
@@ -78,7 +78,7 @@ class Api {
                     standingType: "HOME"
                 }), dataApi.options);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 if (!responseJson) openModal();
                 return responseJson;
             }
@@ -90,14 +90,14 @@ class Api {
             if ('caches' in window) {
                 const response = await caches.match(`${dataApi.url}teams/${id}`);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 return responseJson;
             }
         } catch (error) {
             if (error instanceof TypeError) {
                 const response = await fetch(`${dataApi.url}teams/${id}`, dataApi.options);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 if (!responseJson) openModal();
                 return responseJson;
             }
@@ -109,7 +109,7 @@ class Api {
             if ('caches' in window) {
                 const response = await caches.match(`${dataApi.url}teams/${id}/matches?status=SCHEDULED`);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 return responseJson;
             }
         } catch (error) {
@@ -123,7 +123,7 @@ class Api {
                     status: "SCHEDULED"
                 }), dataApi.options);
                 const responseJson = await response.json();
-                if (responseJson) removeLoader();
+                if (responseJson) setTimeLoader();
                 if (!responseJson) openModal();
                 return responseJson;
             }
@@ -189,10 +189,10 @@ class Api {
         teamContentInnerHTML += `
                     <div class="col s12 m8">
                         <ul class="tabs">
-                            <li class="tab col s3 disabled"><a href="#latest" class="btn dark-background dark-color">Latest</a></li>
-                            <li class="tab col s3"><a href="#squads" class="btn dark-background dark-color active">Squads</a></li>
-                            <li class="tab col s3"><a href="#stats" class="btn dark-background dark-color">Stats</a></li>
-                            <li class="tab col s3 disabled"><a href="#related" class="btn dark-background dark-color">Related</a></li>
+                            <li class="tab col s3 disabled"><a href="#latest" class="btn dark-background-default dark-color-default">Latest</a></li>
+                            <li class="tab col s3"><a href="#squads" class="btn dark-background-default dark-color-default active">Squads</a></li>
+                            <li class="tab col s3"><a href="#stats" class="btn dark-background-default dark-color-default">Stats</a></li>
+                            <li class="tab col s3 disabled"><a href="#related" class="btn dark-background-default dark-color-default">Related</a></li>
                         </ul>
                     </div>`;
         // squads
@@ -264,7 +264,7 @@ class Api {
                 </div>`;
         document.querySelector("#body-content").innerHTML = teamContentInnerHTML;
         tabs();
-        document.querySelector('loader-bar').style.visibility = "hidden";
+        setTimeLoader();
     }
 }
 export default Api;

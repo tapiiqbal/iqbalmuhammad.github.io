@@ -1,5 +1,7 @@
-import api from '../api/api.js'
-import { saveByIdCompetitions } from '../api/db.js'
+import api from '../api/api.js';
+import { saveByIdCompetitions } from '../api/db.js';
+import { visibleLoader } from '../assets/js/helper.js';
+
 class CompetitionsBar extends HTMLElement {
     constructor() {
         super();
@@ -9,6 +11,7 @@ class CompetitionsBar extends HTMLElement {
         this.render();
     }
     async render() {
+        visibleLoader();
         const response = await api.getAllCompetitions();
         const { competitions } = response;
         let dataCompetitions = [];

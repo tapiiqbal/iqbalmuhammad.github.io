@@ -2,9 +2,16 @@ let c = 0;
 let t;
 let timer_is_on = 0;
 const removeLoader = () => {
-    const loaderBar = document.querySelector('loader-bar');
+    const loaderBar = document.querySelector('preloader-bar');
     if (loaderBar) {
-        return document.querySelector('loader-bar').style.visibility = "hidden";
+        return document.querySelector('preloader-bar').style.visibility = "hidden";
+    }
+}
+
+const visibleLoader = () => {
+    const loaderBar = document.querySelector('preloader-bar');
+    if (loaderBar) {
+        return document.querySelector('preloader-bar').style.visibility = "visible";
     }
 }
 const setTimeLoader = () => {
@@ -34,4 +41,4 @@ const stopCount = () => {
     timer_is_on = 0;
 }
 
-export { removeLoader, formatDate, setTimeLoader };
+export { removeLoader, formatDate, setTimeLoader, visibleLoader };

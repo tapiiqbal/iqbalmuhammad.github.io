@@ -6,6 +6,7 @@ import 'material-design-icons/iconfont/material-icons.css';
 import './assets/css/darkmode.css';
 import './assets/css/home.css';
 import './assets/css/detail.css';
+
 //js
 import 'materialize-css/dist/js/materialize.min.js';
 import './assets/js/helper';
@@ -21,11 +22,11 @@ import "./component/competitions-bar.js";
 import "./component/competitions-standings.js";
 import "./component/footer-bar.js";
 import "./component/footer-bar.js";
-import "./component/loader-bar.js";
 import "./component/confirm-bar.js";
 import "./component/button-save.js";
 import "./component/save-competitions.js";
 import "./component/save-detail.js";
+import "./component/preloader.js";
 
 //api
 import './api/api';

@@ -1,6 +1,7 @@
 import idb from 'idb';
 import { toast } from '../assets/js/initialization.js';
 import { showNotifSaveCompetition, showNotifSaveTeam } from '../assets/js/push-notification.js';
+import { setTimeLoader } from '../assets/js/helper.js'
 const dbPromised = idb.open("football-data", 1, (upgradeDb) => {
     let competitionsObjectStore = upgradeDb.createObjectStore("v2-competitions", {
         keyPath: "id"
@@ -19,7 +20,7 @@ const saveByIdCompetitions = (competition) => {
         .then(function(db) {
             let tx = db.transaction("v2-competitions", "readwrite");
             let store = tx.objectStore("v2-competitions");
-            store.add(competition);
+            store.put(competition);
             return tx.complete;
         })
         .then(function() {
@@ -39,7 +40,7 @@ const saveByIdTeam = (team) => {
         .then(function(db) {
             let tx = db.transaction("v2-teams", "readwrite");
             let store = tx.objectStore("v2-teams");
-            store.add(team);
+            store.put(team);
             return tx.complete;
         })
         .then(function() {
@@ -90,6 +91,7 @@ function getAllCompetitions() {
                 return store.getAll();
             })
             .then(function(competitions) {
+                setTimeLoader();
                 resolve(competitions);
             })
     })
@@ -104,6 +106,7 @@ function getAllTeams() {
                 return store.getAll();
             })
             .then(function(teams) {
+                setTimeLoader();
                 resolve(teams);
             })
     })

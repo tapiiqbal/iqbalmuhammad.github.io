@@ -16,9 +16,8 @@ class ButttonSave extends HTMLElement {
                 <i class="medium material-icons">menu</i>
             </a>
             <ul>
-                <li><a href="index.html" class="btn-floating yellow darken-1"><i class="material-icons">arrow_back</i></a></li>
-                <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                <li><a class="btn-floating blue pulse" id="save"><i class="material-icons">save</i></a></li>
+                <li><a href="index.html" class="btn-floating dark-background"><i class="material-icons">arrow_back</i></a></li>
+                <li><a class="btn-floating dark-background pulse" id="save"><i class="material-icons">save</i></a></li>
             </ul>
         </div>`
         floatingActionButton();

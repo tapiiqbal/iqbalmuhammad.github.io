@@ -1,4 +1,5 @@
-import api from '../api/api.js'
+import api from '../api/api.js';
+import { visibleLoader } from '../assets/js/helper.js';
 class CompetitionsStanding extends HTMLElement {
     constructor() {
         super();
@@ -48,7 +49,7 @@ class CompetitionsStanding extends HTMLElement {
                     return table.team.id == id;
                 }
                 const dataTeam = table.filter(checkId);
-                document.querySelector('loader-bar').style.visibility = "visible";
+                visibleLoader();
                 api.detail(dataTeam[0]);
             })
         })
