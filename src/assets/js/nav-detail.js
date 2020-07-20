@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         let page = window.location.hash.substr(1);
-        if (page === "") loadPage("pagedetail");
+        if (page === "") loadPage("detail");
         loadNavDetail();
     }
 })

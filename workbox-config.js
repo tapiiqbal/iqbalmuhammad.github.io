@@ -8,9 +8,10 @@ module.exports = {
         "app.js",
         "style.css",
         "assets/images/clubs/*.svg",
-        "pages/pagedetail.html",
-        "pages/pagehome.html",
-        "pages/pagesave.html",
+        "assets/images/*",
+        "pages/detail.html",
+        "pages/home.html",
+        "pages/save.html",
         "pages/offline.html",
         "pages/404.html"
     ],

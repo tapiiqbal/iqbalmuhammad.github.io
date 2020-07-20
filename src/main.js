@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             localStorage.setItem('auth', JSON.stringify(btoa(String.fromCharCode.apply(
                                 null, new Uint8Array(subscribe.getKey('auth'))))));
                         }).catch(function(e) {
+                            location.reload();
                             console.error(e.message);
                         });
                     });

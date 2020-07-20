@@ -26,8 +26,6 @@ class SaveCompetitions extends HTMLElement {
         })
         const resultTeams = await getAllTeams();
         const resultTeam = resultTeams.map(dt => {
-            let url = dt.crestUrl;
-            url = url.replace(/^http:\/\//i, 'https://');
             let dtHTML = "";
             return dtHTML += `
                 <li id="team-${dt.id}">

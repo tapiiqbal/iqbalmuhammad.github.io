@@ -1,6 +1,5 @@
 const path = require("path");
 const htmlPlugin = require('html-webpack-plugin');
-// const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -54,13 +53,13 @@ module.exports = {
     plugins: [
 
         new webpack.ProgressPlugin(),
-        // new SourceMapDevToolPlugin({
-        //     filename: "[file].map"
-        // }),
-        // new CleanWebpackPlugin({
-        //     dry: true,
-        //     verbose: true,
-        // }),
+        new SourceMapDevToolPlugin({
+            filename: "[file].map"
+        }),
+        new CleanWebpackPlugin({
+            dry: true,
+            verbose: true,
+        }),
         new htmlPlugin({
             title: 'index',
             template: 'src/index.html',
@@ -92,11 +91,5 @@ module.exports = {
                 { from: './src/manifest.json', to: '' },
             ],
         }),
-        // new InjectManifest({
-        //     swSrc: './src/sw.js',
-        //     swDest: 'sw.js',
-        //     maximumFileSizeToCacheInBytes: 1024 * 1024 * 5,
-        // })
-
     ],
 }

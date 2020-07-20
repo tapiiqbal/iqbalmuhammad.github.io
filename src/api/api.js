@@ -136,16 +136,14 @@ class Api {
         const resultMatch = await this.getByIdTeamMatch(dataTeam.team.id);
         const { matches } = resultMatch;
         // row
-        let urlImg = dataTeam.team.crestUrl;
-        if (urlImg !== null) {
-            urlImg = urlImg.replace(/^http:\/\//i, 'https://')
-        };
+        let url = dataTeam.team.crestUrl;
+        let imgUrl = url.replace(/^http:\/\//i, 'https://');
         let teamContentInnerHTML = `
             <div class="row">
                 <div class="col s12 hide-on-large-only hide-on-med-only">
                     <ul class="collection with-header center-align">
                         <li class="collection-header dark-background dark-color">
-                            <img src="${dataTeam.team.crestUrl}" alt="${dataTeam.team.name}" height="50px" width="auto">
+                            <img src="${imgUrl}" alt="${dataTeam.team.name}" height="50px" width="auto">
                             <p>${dataTeam.team.name}</p>
                         </li>
                     </ul>
@@ -153,7 +151,7 @@ class Api {
                 <div class="col s12 m4 hide-on-small-only">
                     <ul class="collection with-header center-align">
                         <li class="collection-header dark-background dark-color">
-                            <img src="${dataTeam.team.crestUrl}" alt="${dataTeam.team.name}" height="50px" width="auto">
+                            <img src="${imgUrl}" alt="${dataTeam.team.name}" height="50px" width="auto">
                             <p>${dataTeam.team.name}</p>
                         </li>
                         <li class="collection-item dark-background dark-color">

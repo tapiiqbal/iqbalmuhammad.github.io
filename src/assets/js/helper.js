@@ -15,7 +15,7 @@ const visibleLoader = () => {
     }
 }
 const setTimeLoader = () => {
-    return setTimeout(removeLoader, 3000);
+    return setTimeout(removeLoader, 4000);
 }
 const formatDate = (params) => {
     const format = params.split("-");

@@ -25,10 +25,6 @@ class CompetitionsBar extends HTMLElement {
             return dt;
         });
         const competitionsHTML = dataCompetitions.map(dt => {
-            let urlImg = dt.emblemUrl;
-            if (urlImg !== null) {
-                urlImg = urlImg.replace(/^http:\/\//i, 'https://')
-            };
             let dtHTML = "";
             dtHTML += `
                 <div class="col s6 m2">
