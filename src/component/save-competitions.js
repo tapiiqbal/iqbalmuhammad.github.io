@@ -26,11 +26,13 @@ class SaveCompetitions extends HTMLElement {
         })
         const resultTeams = await getAllTeams();
         const resultTeam = resultTeams.map(dt => {
+            let url = dt.crestUrl;
+            let imgUrl = url.replace(/^http:\/\//i, 'https://');
             let dtHTML = "";
             return dtHTML += `
                 <li id="team-${dt.id}">
                     <div class="collapsible-header">
-                        <img class="circle" id="id-${dt.id}" src="${dt.crestUrl}" alt="${dt.name}" width="40px" height="40px">
+                        <img class="circle" id="id-${dt.id}" src="${imgUrl}" alt="${dt.name}" width="40px" height="40px">
                                     <span style="padding: 10px;">${dt.name}</span>
                                     <span class="badge"><a><i class="material-icons" id="team" value="${dt.id}">delete</i></a></span></div>
                     <div class="collapsible-body" id="detail-id-team${dt.id}"></div>

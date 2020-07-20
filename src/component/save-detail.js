@@ -54,9 +54,11 @@ class SaveDetail extends HTMLElement {
                             `;
                     if (winner) {
                         if (winner.crestUrl === null) winner.crestUrl = '-';
+                        let url = winner.crestUrl;
+                        let imgUrl = url.replace(/^http:\/\//i, 'https://');
                         competitionHTML += `<p class="center-align">WInner</p>
                             <p class="center-align">${winner.name}</p>
-                            <p class="center-align"><img src="${winner.crestUrl}" alt="${winner.name}" width="40px" height="40px"></p>
+                            <p class="center-align"><img src="${imgUrl}" alt="${winner.name}" width="40px" height="40px"></p>
                             <hr style="width:50px;">`;
                     }
                     document.querySelector(`#detail-id-competition${dt.id}`).innerHTML = competitionHTML;

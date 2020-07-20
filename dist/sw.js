@@ -14,7 +14,7 @@ if (workbox) {
     workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "49dbe272f2c63ec767b4acbd60400be6"
+    "revision": "4bbe5a9e988ad25f3cf7003d63364be3"
   },
   {
     "url": "nav-home.html",
@@ -30,11 +30,11 @@ if (workbox) {
   },
   {
     "url": "app.js",
-    "revision": "0a103ecc7ae6236f91d60062388d3cf9"
+    "revision": "4d193172febb5eb31be6c8283011ed80"
   },
   {
     "url": "style.css",
-    "revision": "9823008b0a4d6a2dde600cc44955834b"
+    "revision": "49e16331e7ed4efb89a8b1f00d8c2e1d"
   },
   {
     "url": "assets/images/clubs/bundes-liga.svg",

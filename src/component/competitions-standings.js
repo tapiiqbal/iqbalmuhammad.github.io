@@ -17,7 +17,6 @@ class CompetitionsStanding extends HTMLElement {
         const standingsHTML = table.map(dt => {
             let url = dt.team.crestUrl;
             let imgUrl = url.replace(/^http:\/\//i, 'https://');
-
             let dtHTML = "";
             dtHTML += `
                 <li class="collection-item avatar dark-border dark-background dark-color">

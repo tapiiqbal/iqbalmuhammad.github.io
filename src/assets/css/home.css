@@ -1,5 +1,15 @@
+footer.page-footer {
+    background-color: #131313;
+}
+
 body {
-    /* background-color: #76CF17; */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 .card {

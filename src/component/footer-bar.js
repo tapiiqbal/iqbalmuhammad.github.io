@@ -8,11 +8,6 @@ class FooterBar extends HTMLElement {
     }
     render() {
         this.innerHTML = `
-        <style>
-        footer.page-footer{
-            background-color: #131313;
-        }
-        </style>
             <footer class="page-footer">
                 <div class="footer-copyright">
                     <div class="container">
