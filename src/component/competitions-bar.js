@@ -27,7 +27,7 @@ class CompetitionsBar extends HTMLElement {
         const competitionsHTML = dataCompetitions.map(dt => {
             let dtHTML = "";
             dtHTML += `
-                <div class="col s6 m2">
+                <div class="col s12 m6 l3">
                     <div class="card small hoverable">
                         <a href="./detail.html?id=${dt.id}">
                             <div class="card-image" id="id-${dt.id}">
@@ -44,8 +44,10 @@ class CompetitionsBar extends HTMLElement {
             return dtHTML;
         })
         this.innerHTML = `
-            <div class="row">
-                ${competitionsHTML.join('')}
+            <div class="container">
+                <div class="row">
+                    ${competitionsHTML.join('')}
+                </div>
             </div>`;
         if (document.querySelector('img#id-2002')) document.querySelector('img#id-2002').setAttribute("src", "./assets/images/clubs/bundes-liga.svg");
         if (document.querySelector('img#id-2003')) document.querySelector('img#id-2003').setAttribute("src", "./assets/images/clubs/eredivisie.svg");
