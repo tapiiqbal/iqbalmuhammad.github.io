@@ -2,6 +2,7 @@ module.exports = {
     "globDirectory": "dist/",
     "globPatterns": [
         "index.html",
+        "detail.html",
         "nav-home.html",
         "nav-detail.html",
         "manifest.json",
